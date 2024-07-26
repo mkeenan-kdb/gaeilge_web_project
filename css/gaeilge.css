@@ -1,0 +1,319 @@
+@font-face {
+    font-family: 'bunw';
+    src: url('../fonts/bunw/bunigc.woff2') format('woff2');
+    }
+
+@font-face {
+    font-family: 'ardw';
+    src: url('../fonts/ardw/ardchlo.woff2') format('woff2');
+    }
+
+@font-face {
+    font-family: 'mionw';
+    src: url('../fonts/mionw/mionchlo.woff2') format('woff2');
+    }
+
+@font-face {
+    font-family: 'urrw';
+    src: url('../fonts/urrw/urrgc.woff2') format('woff2');
+    }
+
+@font-face {
+    font-family: 'gearw';
+    src: url('../fonts/gearw/gear.woff2') format('woff2');
+    }
+
+@font-face {
+    font-family: 'glanw';
+    src: url('../fonts/glanw/glangc.woff2') format('woff2');
+    }
+
+@font-face {
+    font-family: 'mearw';
+    src: url('../fonts/mearw/mearchlo.woff2') format('woff2');
+    }
+
+@font-face {
+    font-family: 'sraidw';
+    src: url('../fonts/sraidw/SraidchloGC-Regular.woff2') format('woff2');
+    }
+
+body
+{
+   font-family:'urrw','Gaelic Modern', sans-serif;
+   height: 100vh;
+   width: 100vw;
+   padding: 0;
+   margin: 0 auto;
+   background-color: #818181;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+:root {
+  --form-control-color: rebeccapurple;
+}
+
+input[type="radio"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+}
+
+input[type="radio"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="radio"]:focus {
+  outline: max(1px, 0.1em) solid currentColor;
+  outline-offset: max(1px, 0.1em);
+}
+
+.form-control {
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  margin-top:20px;
+  font-weight: bold;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+}
+
+#poncSelection{
+  display: inline-flex;
+}
+
+.tooltip {
+  position: relative;
+  border-bottom: 1px solid black;
+}
+
+.tooltip .tooltiptext {
+  font-family:'urrw','Gaelic Modern', sans-serif;
+  visibility: hidden;
+  color: black;
+  text-align: center;
+  border-radius: 12px;
+  padding: 7px 6px 2px 7px;
+  position: absolute;
+  z-index: 1;
+  border: 1px solid #478bff;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  background-color:white;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.web-title{
+  position: fixed;
+  text-align: center;
+  font-family: 'ardw';
+  width: 94%;
+  margin-left: 3%;
+  padding: 10px;
+  top: 0px;
+  background-color: #818181d6;
+  z-index: 2;
+  border-radius: 12px;
+}
+
+.web-title h2{
+  margin: 3px;
+  font-family: 'mionw';
+  font-size: 3rem;
+  text-shadow: -2px 2px 0px #000000a8;
+  color: #2cc540;
+}
+
+
+.form-control {
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 0.5em;
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 0.8em auto;
+  gap: 0.5em;
+}
+
+.sentence {
+  border-radius: 8px;
+  margin: 10px 0px 0px 0px;
+  padding: 9px 12px 7px 9px;
+  background-color: #f5f5dc;
+  width: fit-content;
+  float: unset;
+  box-shadow: 0px 0px 3px -1px black;
+}
+
+.soundicon {
+    background: url('../img/soundicon.png');
+    width: 18px;
+    height: 18px;
+    margin-bottom: -3px;
+    margin-left: 9px;
+    background-size: contain;
+    display: inline-block;
+    /* Other styles here */
+}
+
+.soundicon:hover{
+  cursor:pointer;
+}
+
+.irish-font{
+  font-size: 1.3rem;
+  font-family:'urrw', sans-serif;
+}
+
+#sentenceContainer {
+  background-color: #d6d6d6;
+  width: 98%;
+  margin: 0 auto;
+  padding: 5px 0px 9px 5px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+0px 0px 1px 0px
+  color: black;
+  box-shadow: inset 0px 0px 7px -4px black;
+}
+
+.underline_word{
+  color: #2e9020;
+  text-decoration: underline;
+}
+
+#wordItems{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  width: 99%;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 3rem;
+  border-top-left-radius: 9px;
+  padding: 13px;
+  border-top-right-radius: 9px;
+  box-shadow: inset 0px 0px 7px -4px black;
+}
+
+.wordItem{
+  vertical-align:middle;
+  padding: 6px 11px 2px 10px;
+  border-radius: 5px;
+  font-size: larger;
+  color: white;
+  margin: 2px;
+  background-color: #478bff;
+  text-shadow: 1px 1px black;
+  box-shadow: 7px 7px 8px -10px black;
+  }
+
+.wordItem:hover{
+  /*font-size: medium;*/
+  background-color: #2fa60d;
+  text-shadow: 0px 0px 3px black;
+  /*padding: 9px 20px 5px 19px;*/
+  cursor: pointer;
+}
+
+.datom-header{
+  font-family:'urrw','Gaelic Modern', sans-serif;
+  font-size: large;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #cacaca;
+  background-color: #ffffff;
+  box-shadow: inset 0px 0px 7px -4px black;
+}
+
+#datom-container{
+  background-color: #d9d9d9;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.custom-input{
+  font-size: 0.9rem;
+  border-radius: 5px;
+  margin-top: 6px;
+  padding: 5px 5px 5px 8px;
+  border: 1px solid #595959;
+}
+
+.custom-input:hover{
+  background-color: #4588ff;
+  color:white;
+}
+
+.loader-box {
+  top: 0%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000b8;
+  z-index: 3;
+  height: 100%;
+  position: fixed;
+}
+
+.loader {
+    width: 40px;
+    height: 40px;
+    --c:no-repeat linear-gradient(orange 0 0);
+    background: var(--c),var(--c),var(--c),var(--c);
+    background-size: 21px 21px;
+    animation: l5 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+@keyframes l5 {
+   0%   {background-position: 0    0,100% 0   ,100% 100%,0 100%}
+   33%  {background-position: 0    0,100% 0   ,100% 100%,0 100%;width:60px;height: 60px}
+   66%  {background-position: 100% 0,100% 100%,0    100%,0 0   ;width:60px;height: 60px}
+   100% {background-position: 100% 0,100% 100%,0    100%,0 0   }
+}
