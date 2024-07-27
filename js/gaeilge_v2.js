@@ -20,7 +20,7 @@ function sendData(findfile) {
     .then(response => response.text()) // send response body to next then chain
     .then(body => {
       var resp;
-      if(body.includes(".json: not found")){
+      if(body.includes("File not found")){
         resp = nullresult;
       }else{
         resp = JSON.parse(body);
