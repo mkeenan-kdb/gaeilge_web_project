@@ -163,12 +163,10 @@ function searchForm(word) {
   var origword = document.getElementById("searchTerm").value;
   document.getElementById("searchTerm").value = word;
   document.getElementById("searchOpt").value = 'exact';
-  document.getElementById("searchButton").click();
-  setTimeout(() => {
-    document.getElementById("searchOpt").value = orig;
-    document.getElementById("searchTerm").value = origword;
-    window.scrollTo(0, 0);
-  }, 50);
+  searchWord();
+  document.getElementById("searchOpt").value = orig;
+  document.getElementById("searchTerm").value = origword;
+  window.scrollTo(0, 0);
 }
 
 //Document ready
