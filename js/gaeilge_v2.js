@@ -1,4 +1,4 @@
-const URL = "http://" + window.location.host;
+const URL = window.location.href;
 var sentences = [];
 var allowed = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","á","é","í","ó","ú"];
 var nullresult;
@@ -16,7 +16,7 @@ var words = [];
 function sendData(findfile) {
   document.querySelector(".loader-box").style.display = "flex";
   console.log("Finding file: ", findfile);
-  fetch('preload/'+findfile).then(response => console.log(response.status) || response) // output the status and return response
+  fetch(URL+'/preload/'+findfile).then(response => console.log(response.status) || response) // output the status and return response
     .then(response => response.text()) // send response body to next then chain
     .then(body => {
       var resp;
@@ -190,7 +190,7 @@ function searchForm(word) {
   });
   var containerWidth = document.querySelector("#sentenceContainer").offsetWidth + "px";
   document.querySelector("#wordItems").style.width = containerWidth;
-  fetch('preload/match_NORESULT_sentences.json').then(response => console.log(response.status) || response) // output the status and return response
+  fetch(URL+'/preload/match_NORESULT_sentences.json').then(response => console.log(response.status) || response) // output the status and return response
     .then(response => response.text()) // send response body to next then chain
     .then(body => {
       let resp = JSON.parse(body);
