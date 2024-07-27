@@ -8,7 +8,8 @@ I am a *beginner in irish* - corrections welcome
 This is my website I've built to help learn irish.
 
 Try it here: https://mkeenan-kdb.github.io/gaeilge_web_project/
-Youtube where I share progress: https://www.youtube.com/@UncleMick
+
+My Youtube where I share progress: https://www.youtube.com/@UncleMick
 
 The sentences come from the github: michmech/irish-sentence-bank
 which reads;
