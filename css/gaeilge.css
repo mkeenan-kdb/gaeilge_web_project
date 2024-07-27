@@ -166,6 +166,28 @@ input[type="radio"]:focus {
   color: #2cc540;
 }
 
+.mick-icon{
+  background-color:white;
+  display: inline-block;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 1%;
+}
+
+.mick-icon:hover{
+  cursor:pointer;
+}
+
+.mick-icon span{
+  background: url('../img/mickicon.jpg');
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  display: inline-block;
+  margin-top: 10px;
+}
 
 .form-control {
   font-family: system-ui, sans-serif;
