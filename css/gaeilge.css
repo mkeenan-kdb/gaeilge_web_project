@@ -326,7 +326,7 @@ input[type="radio"]:focus {
   font-size: large;
   width: fit-content;
   margin: 0 auto;
-  padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+  padding: 0rem 0.7rem 0.5rem 0.7rem;
   border-radius: 10px;
   border: 1px solid #cacaca;
   background-color: #ffffff;

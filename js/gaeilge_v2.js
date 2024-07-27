@@ -35,20 +35,28 @@ function sendData(findfile) {
       switch (handler) {
         case 'searchWord':
           sentences = resp.resp.result;
-          words = resp.resp.forms;
           var container = document.getElementById("sentenceContainer");
           container.innerHTML = '';
           sentences.forEach((item, i) => {
             container.innerHTML += item['html'];
           });
           var html = '';
-          if(!(("exact"==resp.payl[1])&&("match"==document.querySelector("#searchOpt").value))){
-            console.log("Rendering!!!");
-            words.forEach((item) => {
-              html += item;
-            });
-            document.getElementById("wordItems").innerHTML = html;
+          var resultopt = resp.payl[1];
+          var pageopt = document.querySelector("#searchOpt").value;
+          console.log(resultopt, pageopt);
+
+          if(!(("match" == pageopt)&&("exact" == resultopt))){
+            console.log("RENDERING FORMS");
+            words = resp.resp.forms;
+          }else{
+            console.log("NOT REPLACING FORMS");
           }
+
+          words.forEach((item) => {
+            html += item;
+          });
+          document.getElementById("wordItems").innerHTML = html;
+
           var poncv = document.querySelector("#poncCheck");
           if (poncv.checked == true) {
             changeChlo(poncv);
@@ -159,6 +167,7 @@ function searchWord() {
 }
 
 function searchForm(word) {
+  console.log("Searching form: ",word);
   var orig = document.getElementById("searchOpt").value;
   var origword = document.getElementById("searchTerm").value;
   document.getElementById("searchTerm").value = word;
