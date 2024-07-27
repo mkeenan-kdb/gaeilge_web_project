@@ -1,6 +1,6 @@
-# gaeilgeWeb
+# Teach Na nGael #
 
-## Dia duit agus fáilte a chairde!
+## Dia daoibh agus fáilte a chairde!
 
 # This is a side-project and still in development.
 
