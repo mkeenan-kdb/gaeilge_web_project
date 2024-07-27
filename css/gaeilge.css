@@ -161,7 +161,7 @@ input[type="radio"]:focus {
 .web-title h2{
   margin: 3px;
   font-family: 'mionw';
-  font-size: 3rem;
+  font-size: 2rem;
   text-shadow: -2px 2px 0px #000000a8;
   color: #2cc540;
 }
