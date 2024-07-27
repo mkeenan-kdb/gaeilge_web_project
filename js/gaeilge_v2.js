@@ -10,8 +10,6 @@ sentences = [{
   "html": "<div class=\"sentence tooltip\" id=0>Irish results will <span class=\"underline_word\">show</span> here<span class=\"soundicon\"></span><span class=\"tooltiptext\">English translation will show here!</span></div>",
   "ponchtml": "<div class=\"sentence tooltip\" id=0>Irish results can have ponc like: '<span class=\"underline_word\">Ḟ</span>ear'. <span class=\"soundicon\"></span><span class=\"tooltiptext\">English translation will show here!</span></div>"
 }]
-var words = [];
-//#searchTerm#langSelect
 
 function sendData(findfile) {
   document.querySelector(".loader-box").style.display = "flex";
@@ -43,20 +41,26 @@ function sendData(findfile) {
           var html = '';
           var resultopt = resp.payl[1];
           var pageopt = document.querySelector("#searchOpt").value;
-          console.log(resultopt, pageopt);
-
+          var forms = resp.resp.forms;
           if(!(("match" == pageopt)&&("exact" == resultopt))){
             console.log("RENDERING FORMS");
-            words = resp.resp.forms;
+            forms.forEach((item) => {
+              html += item;
+            });
+            document.getElementById("wordItems").innerHTML = html;
           }else{
-            console.log("NOT REPLACING FORMS");
+            console.log("NOT REPLACING FORMS", resp.payl);
+            var domforms = document.querySelectorAll(".wordItem");
+            domforms.forEach((item, i) => {
+              console.log(item);
+              if(!item.style.textShadow == '')return;
+              if(item.innerText == resp.payl[0]){
+                domforms[i].style.backgroundColor = "#2fa60d";
+              }else{
+                domforms[i].style.backgroundColor = "";
+              }
+            });
           }
-
-          words.forEach((item) => {
-            html += item;
-          });
-          document.getElementById("wordItems").innerHTML = html;
-
           var poncv = document.querySelector("#poncCheck");
           if (poncv.checked == true) {
             changeChlo(poncv);
@@ -176,6 +180,12 @@ function searchForm(word) {
   document.getElementById("searchOpt").value = orig;
   document.getElementById("searchTerm").value = origword;
   window.scrollTo(0, 0);
+}
+
+function insertSpecialChar(char){
+  var st = document.getElementById("searchTerm");
+  st.value+=char;
+  st.focus();
 }
 
 //Document ready

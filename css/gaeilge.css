@@ -140,6 +140,34 @@ input[type="radio"]:focus {
   transition: opacity 1s;
 }
 
+#searchBoxContainer{
+  width: fit-content;
+  display: inline-block;
+}
+
+#specialCharsContainer{
+    margin-top: 5px;
+    display: inline-block;
+    font-family:'urrw';
+    font-size: 20px;
+}
+
+#specialCharsContainer span{
+  display: inline-block;
+  border:1px solid black;
+  box-shadow: inset 0px 0px 3px -1px black;
+  border-radius: 7px;
+  width: 27px;
+  margin-right: 2px;
+  padding-top: 2px;
+}
+
+#specialCharsContainer span:hover{
+    background-color: #4588ff;
+    color:white;
+    cursor:pointer;
+}
+
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
@@ -159,7 +187,7 @@ input[type="radio"]:focus {
 }
 
 .web-title h2{
-  margin: 3px;
+  margin: 5px 65px 5px 5px;
   font-family: 'mionw';
   font-size: 3rem;
   text-shadow: -2px 2px 0px #000000a8;
@@ -274,7 +302,7 @@ input[type="radio"]:focus {
   width: 98%;
   margin: 0 auto;
   margin-bottom: 7px;
-  padding: 5px 0px 9px 5px;
+  padding: 5px 5px 9px 5px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 0px 0px 1px 0px
@@ -326,7 +354,7 @@ input[type="radio"]:focus {
   font-size: large;
   width: fit-content;
   margin: 0 auto;
-  padding: 0rem 0.7rem 0.5rem 0.7rem;
+  padding: 0rem 0.7rem 0.8rem 0.7rem;
   border-radius: 10px;
   border: 1px solid #cacaca;
   background-color: #ffffff;
@@ -351,6 +379,7 @@ input[type="radio"]:focus {
 .custom-input:hover{
   background-color: #4588ff;
   color:white;
+  cursor:pointer;
 }
 
 .loader-box {

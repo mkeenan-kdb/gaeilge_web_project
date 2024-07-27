@@ -21,22 +21,30 @@
     <!--h2>Lámha na nGael</h2-->
     <h2>Teach na nGael</h2>
     <div class="datom-header">
-      <input id="searchTerm" class="custom-input" type="search" placeholder="Enter word here" onfocus="this.focus();"></input>
+      <div  id="searchBoxContainer">
+        <input id="searchTerm" class="custom-input" type="search" placeholder="Enter word here" onfocus="this.focus();"></input>
+        <div id="specialCharsContainer">
+          <span onclick="insertSpecialChar('á')">á</span>
+          <span onclick="insertSpecialChar('é')">é</span>
+          <span onclick="insertSpecialChar('í')">í</span>
+          <span onclick="insertSpecialChar('ó')">ó</span>
+          <span onclick="insertSpecialChar('ú')">ú</span>
+        </div>
+      </div>
       <label for="searchOpt"></label>
       <select class="custom-input" name="searchopts" id="searchOpt">
         <option value="match">Match</option>
         <option value="exact">Exact</option>
-        <option value="en">English</option>
       </select>
       <button id="searchButton" type="button" class="custom-input" onclick="searchWord();">Search</button>
-      <label for="voiceSelect">Choose a voice:</label>
+      <label for="voiceSelect">Voice:</label>
       <select class="speech_voice custom-input" name="voices" id="voiceSelect">
         <option value="ga_UL_anb_exthts" selected>Ulster1</option>
         <option value="ga_CO_pmc_exthts">Connacht1</option>
         <option value="ga_CO_snc_exthts">Connact3</option>
         <option value="ga_MU_nnc_exthts">Munster1</option>
       </select>
-      <label for="fontStyle">Choose an Irish font:</label>
+      <label for="fontStyle">Font:</label>
       <select class="font_style custom-input" name="fonts" id="fontStyle" onchange="changeIrishFont(this.value);">
         <option value="urrw" selected>'Urr'</option>
         <option value="ardw">'Ard'</option>
@@ -66,7 +74,7 @@
   <div id="sentenceContainer" class="irish-font">
     <div class="sentence tooltip" id=0>Irish results will <span class="underline_word">show</span> here. Hover for english.<span class="soundicon"></span><span class="tooltiptext">English translation will show here!</span></div>
   </div>
-  <p style="text-align:center;margin:5px">Buy me a TEA</p>
+  <p style="text-align:center;margin:5px">Cupán tae</p>
   <div class="buy-me">
     <span id="cashApp" onClick="window.open('https://cash.app/$biddlyBick')" target="_newtab"></span>
     <span id="payPal" onClick="window.open('https://www.paypal.com/paypalme/KeenanUncleMick')" target="_newtab"></span>
