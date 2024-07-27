@@ -166,6 +166,15 @@ input[type="radio"]:focus {
   color: #2cc540;
 }
 
+.buy-me{
+  background-color:white;
+  display: block;
+  border-radius: 24px;
+  width: fit-content;
+  padding: 0px 8px 3px 9px;
+  margin: 0 auto;
+}
+
 .mick-icon{
   background-color:white;
   display: inline-block;
@@ -176,10 +185,6 @@ input[type="radio"]:focus {
   left: 1%;
 }
 
-.mick-icon:hover{
-  cursor:pointer;
-}
-
 .mick-icon span{
   background: url('../img/mickicon.jpg');
   width: 40px;
@@ -187,6 +192,40 @@ input[type="radio"]:focus {
   background-size: contain;
   display: inline-block;
   margin-top: 10px;
+}
+
+.mick-icon:hover{
+  cursor:pointer;
+}
+
+#cashApp{
+  background: url('../img/cashapp.png');
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#payPal{
+  background: url('../img/paypal.png');
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  display: inline-block;
+  margin-top: 10px;
+}
+#revolut{
+  background: url('../img/revolut.png');
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#cashApp,#payPal,#revolut:hover{
+  cursor:pointer;
 }
 
 .form-control {
@@ -234,6 +273,7 @@ input[type="radio"]:focus {
   background-color: #d6d6d6;
   width: 98%;
   margin: 0 auto;
+  margin-bottom: 7px;
   padding: 5px 0px 9px 5px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -339,4 +379,3 @@ input[type="radio"]:focus {
    66%  {background-position: 100% 0,100% 100%,0    100%,0 0   ;width:60px;height: 60px}
    100% {background-position: 100% 0,100% 100%,0    100%,0 0   }
 }
-
