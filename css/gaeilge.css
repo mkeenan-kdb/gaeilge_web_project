@@ -172,7 +172,7 @@ input[type="radio"]:focus {
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  position: absolute;
+  float: left;
   left: 1%;
 }
 
@@ -339,3 +339,4 @@ input[type="radio"]:focus {
    66%  {background-position: 100% 0,100% 100%,0    100%,0 0   ;width:60px;height: 60px}
    100% {background-position: 100% 0,100% 100%,0    100%,0 0   }
 }
+
