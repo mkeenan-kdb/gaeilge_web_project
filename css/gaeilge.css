@@ -247,7 +247,7 @@ input[type="radio"]:focus {
   text-decoration: underline;
 }
 
-#wordItems{
+#wordItems {
   display:flex;
   flex-wrap:wrap;
   align-items:center;
