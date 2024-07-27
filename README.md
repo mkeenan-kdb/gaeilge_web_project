@@ -1,8 +1,8 @@
 # gaeilgeWeb
 
-##Dia duit agus fáilte a chairde!
+## Dia duit agus fáilte a chairde!
 
-#This is a side-project and still in development.
+# This is a side-project and still in development.
 
 I am a **beginner in irish** - corrections welcome
 
