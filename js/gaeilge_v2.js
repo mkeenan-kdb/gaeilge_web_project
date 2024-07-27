@@ -1,5 +1,4 @@
-const URL = window.location.href;
-console.log(URL);
+const URL = "https://mkeenan-kdb.github.io/gaeilge_web_project"
 var sentences = [];
 var allowed = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","á","é","í","ó","ú"];
 var nullresult;
