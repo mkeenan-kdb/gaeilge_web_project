@@ -16,7 +16,7 @@ var words = [];
 function sendData(findfile) {
   document.querySelector(".loader-box").style.display = "flex";
   console.log("Finding file: ", findfile);
-  fetch('gaeilge_web_project/preload/'+findfile).then(response => console.log(response.status) || response) // output the status and return response
+  fetch('preload/'+findfile).then(response => console.log(response.status) || response) // output the status and return response
     .then(response => response.text()) // send response body to next then chain
     .then(body => {
       var resp;
@@ -190,7 +190,7 @@ function searchForm(word) {
   });
   var containerWidth = document.querySelector("#sentenceContainer").offsetWidth + "px";
   document.querySelector("#wordItems").style.width = containerWidth;
-  fetch('gaeilge_web_project/preload/match_NORESULT_sentences.json').then(response => console.log(response.status) || response) // output the status and return response
+  fetch('preload/match_NORESULT_sentences.json').then(response => console.log(response.status) || response) // output the status and return response
     .then(response => response.text()) // send response body to next then chain
     .then(body => {
       let resp = JSON.parse(body);
