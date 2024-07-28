@@ -191,8 +191,7 @@ input[type="radio"]:focus {
   margin: 5px 65px 5px 5px;
   font-family: 'mionw';
   font-size: 3rem;
-  /* text-shadow: -2px 2px 0px #000000a8; */
-  color: #0e5b18;
+  color: #13691e;
 }
 
 .buy-me{
@@ -354,7 +353,7 @@ input[type="radio"]:focus {
   font-size: large;
   width: fit-content;
   margin: 0 auto;
-  padding: 0.2rem 0.7rem 0.8rem 0.7rem;
+  padding: 0rem 0.7rem 0.8rem 0.7rem;
   border-radius: 10px;
   border: 1px solid #cacaca;
   background-color: #ffffff;
