@@ -3,6 +3,7 @@ var sentences = [];
 var allowed = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","á","é","í","ó","ú"];
 var nullresult;
 var vibes = ["gaeilge.css","gaeilge_v2.css"];
+var pageWidth;
 
 
 sentences = [{
@@ -189,7 +190,6 @@ function searchForm(word) {
   searchWord();
   document.getElementById("searchOpt").value = orig;
   document.getElementById("searchTerm").value = origword;
-  window.scrollTo(0, 0);
 }
 
 function insertSpecialChar(char){
@@ -199,8 +199,14 @@ function insertSpecialChar(char){
 }
 
 function scaleContent(){
-  document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 15 + "px";
-  window.scrollTo(0, 0);
+  var newWidth = document.getElementsByTagName("body")[0].offsetWidth;
+  if(pageWidth == newWidth){
+    return;
+  }else{
+    pageWidth = newWidth;
+    document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 15 + "px";
+    window.scrollTo(0, 0);
+  }
 }
 
 //#d3c0949e
@@ -221,6 +227,7 @@ function scaleContent(){
       document.activeElement.blur();
     }
   });
+
   fetch(URL+'/preload/match_NORESULT_sentences.json').then(response => console.log(response.status) || response) // output the status and return response
     .then(response => response.text()) // send response body to next then chain
     .then(body => {
@@ -233,6 +240,7 @@ function scaleContent(){
       };
       nullresult = resp;
   });
+  pageWidth = document.getElementsByTagName("body")[0].offsetWidth;
   setTimeout(() => {
     window.scrollTo(0, 0);
     document.querySelector(".loader-box").style.display = "none";
