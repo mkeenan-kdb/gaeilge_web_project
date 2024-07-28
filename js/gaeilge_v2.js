@@ -184,6 +184,7 @@ function insertSpecialChar(char){
 
 function scaleContent(){
   document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 15 + "px";
+  window.scrollTo(0, 0);
 }
 
 //Document ready
