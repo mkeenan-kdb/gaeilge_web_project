@@ -3,6 +3,7 @@ var sentences = [];
 var allowed = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","á","é","í","ó","ú"];
 var nullresult;
 
+
 sentences = [{
   "eng": "English translation will show here!",
   "ga": "Irish result will <span class=\"underline_word\">show</span> here",
@@ -100,6 +101,11 @@ function changeIrishFont(font) {
   });
 }
 
+function changeVibe() {
+  var checkval = document.getElementById("vibeCheckbox").checked;
+  console.log(checkval);
+}
+
 function speakIrish(elem) {
   console.log(elem);
   var txt = sentences[Number(elem.parentElement.id)].orig;
@@ -187,6 +193,7 @@ function scaleContent(){
   window.scrollTo(0, 0);
 }
 
+//#d3c0949e
 //Document ready
 (function() {
   document.querySelector(".loader-box").style.display = "flex";

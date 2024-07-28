@@ -45,7 +45,7 @@ body
    width: 100vw;
    padding: 0;
    margin: 0 auto;
-   background-color: #818181;
+   background-color: #f5f5dc;
 }
 
 *,
@@ -182,7 +182,7 @@ input[type="radio"]:focus {
   margin-left: 3%;
   padding: 10px;
   top: -7px;
-  background-color: #818181d6;
+  background-color: #d3c0949e;
   z-index: 2;
   border-radius: 12px;
 }
@@ -191,8 +191,7 @@ input[type="radio"]:focus {
   margin: 5px 65px 5px 5px;
   font-family: 'mionw';
   font-size: 3rem;
-  /* text-shadow: -2px 2px 0px #000000a8; */
-  color: #0e5b18;
+  color: #13671e;
 }
 
 .buy-me{
@@ -299,7 +298,7 @@ input[type="radio"]:focus {
 }
 
 #sentenceContainer {
-  background-color: #d6d6d6;
+  background-color: #d3c0949e;
   width: 98%;
   margin: 0 auto;
   margin-bottom: 7px;
