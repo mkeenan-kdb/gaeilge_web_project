@@ -320,10 +320,9 @@ input[type="radio"]:focus {
   display:flex;
   flex-wrap:wrap;
   align-items:center;
-  width: 99%;
+  width: 98%;
   background-color: white;
   margin: 0 auto;
-  margin-top: 3rem;
   border-top-left-radius: 9px;
   padding: 13px;
   border-top-right-radius: 9px;

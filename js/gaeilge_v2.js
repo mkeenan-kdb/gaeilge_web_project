@@ -63,8 +63,6 @@ function sendData(findfile) {
           } else {
             changeChlo(document.querySelector("#noponcCheck"));
           }
-          var containerWidth = document.querySelector("#sentenceContainer").offsetWidth + "px";
-          document.querySelector("#wordItems").style.width = containerWidth;
           break;
         default:
           console.log("No handler for response");
@@ -184,10 +182,14 @@ function insertSpecialChar(char){
   st.focus();
 }
 
+function scaleContent(){
+  document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 15 + "px";
+}
+
 //Document ready
 (function() {
   document.querySelector(".loader-box").style.display = "flex";
-  document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 20 + "px";
+  scaleContent();
   // Get the input field
   var input = document.getElementById("searchTerm");
   // Execute a function when the user presses a key on the keyboard
@@ -201,8 +203,6 @@ function insertSpecialChar(char){
       document.activeElement.blur();
     }
   });
-  var containerWidth = document.querySelector("#sentenceContainer").offsetWidth + "px";
-  document.querySelector("#wordItems").style.width = containerWidth;
   fetch(URL+'/preload/match_NORESULT_sentences.json').then(response => console.log(response.status) || response) // output the status and return response
     .then(response => response.text()) // send response body to next then chain
     .then(body => {
@@ -219,4 +219,5 @@ function insertSpecialChar(char){
     window.scrollTo(0, 0);
     document.querySelector(".loader-box").style.display = "none";
   }, 200);
+  window.onresize = scaleContent;
 })();
