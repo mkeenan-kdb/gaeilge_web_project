@@ -104,6 +104,7 @@ function changeIrishFont(font) {
 }
 
 function changeVibe() {
+  window.vibeCount = 0;
   var sheets = document.getElementsByTagName("link");
   for(i=0;i<sheets.length;i++){
     var thissheet = sheets[i];
@@ -115,7 +116,17 @@ function changeVibe() {
       thissheet.href = "css/gaeilge.css";
     }
   }
+  var vibeElem = document.getElementById("vibeElem");
+  var wid = document.body.offsetWidth;
+  vibeElem.style.marginLeft = (Math.floor(wid/2)-50)+"px";
+  vibeElem.style.display = "block";
+  vibeElem.addEventListener('animationend', (event) => {
+      vibeElem.classList.remove("zoomInUp");
+      vibeElem.classList.add("bounceOut");
+  });
+  vibeElem.classList.add("zoomInUp");
 }
+
 
 function speakIrish(elem) {
   console.log(elem);
@@ -199,7 +210,7 @@ function insertSpecialChar(char){
 }
 
 function scaleContent(){
-  var newWidth = document.getElementsByTagName("body")[0].offsetWidth;
+  var newWidth = document.body.offsetWidth;
   if(pageWidth == newWidth){
     return;
   }else{
