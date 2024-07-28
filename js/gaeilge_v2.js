@@ -29,7 +29,6 @@ function sendData(findfile) {
         console.log("Error on server side!");
         return;
       };
-      console.log("Results from server: ", resp);
       switch (handler) {
         case 'searchWord':
           sentences = resp.resp.result;
@@ -43,16 +42,13 @@ function sendData(findfile) {
           var pageopt = document.querySelector("#searchOpt").value;
           var forms = resp.resp.forms;
           if(!(("match" == pageopt)&&("exact" == resultopt))){
-            console.log("RENDERING FORMS");
             forms.forEach((item) => {
               html += item;
             });
             document.getElementById("wordItems").innerHTML = html;
           }else{
-            console.log("NOT REPLACING FORMS", resp.payl);
             var domforms = document.querySelectorAll(".wordItem");
             domforms.forEach((item, i) => {
-              console.log(item);
               if(!item.style.textShadow == '')return;
               if(item.innerText == resp.payl[0]){
                 domforms[i].style.backgroundColor = "#2fa60d";

@@ -2,6 +2,18 @@
 <html lang="en">
 
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3WB8J3D3CG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-3WB8J3D3CG');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -21,7 +33,7 @@
     <!--h2>Lámha na nGael</h2-->
     <h2>Teach na nGael</h2>
     <div class="datom-header">
-      <div  id="searchBoxContainer">
+      <div id="searchBoxContainer">
         <input id="searchTerm" class="custom-input" type="search" placeholder="Enter word here" onfocus="this.focus();"></input>
         <div id="specialCharsContainer">
           <span onclick="insertSpecialChar('á')">á</span>

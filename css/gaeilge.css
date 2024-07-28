@@ -140,6 +140,7 @@ input[type="radio"]:focus {
   transition: opacity 1s;
 }
 
+
 #searchBoxContainer{
   width: fit-content;
   display: inline-block;
