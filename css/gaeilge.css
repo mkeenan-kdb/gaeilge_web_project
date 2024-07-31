@@ -271,10 +271,12 @@ input[type="search"]::-webkit-search-results-decoration {
     width: 96%;
     margin-left: 2%;
     padding: 10px;
+    background-color: color(srgb 0.88 0.8365 0.6864 / 0.76);
     top: -7px;
     z-index: 2;
     box-shadow: 0px 0px 2px 1px #0000001a;
     border-radius: 5px;
+
 }
 
 .web-title > h2 {
