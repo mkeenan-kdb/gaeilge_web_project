@@ -1,11 +1,9 @@
 const URL = "https://mkeenan-kdb.github.io/gaeilge_web_project";
-//const URL = "http://" + window.location.host;
 var sentences = [];
-var allowed = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","á","é","í","ó","ú"];
+var allowed = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "á", "é", "í", "ó", "ú"];
 var nullresult;
-var vibes = ["gaeilge.css","gaeilge_v2.css"];
+var vibes = ["gaeilge.css", "gaeilge_v2.css"];
 var pageWidth;
-
 
 sentences = [{
   "eng": "English translation will show here!",
@@ -23,9 +21,9 @@ function sendData(findfile) {
     .then(body => {
       //Define the response object
       var resp;
-      if("{"==body[0]){
+      if ("{" == body[0]) {
         resp = JSON.parse(body); //If its a valid json response like we expect
-      }else{
+      } else {
         resp = nullresult; //Use the null response if it's not json
       }
       const handler = resp.called;
@@ -47,18 +45,18 @@ function sendData(findfile) {
           var pageopt = document.querySelector("#searchOpt").value;
           var forms = resp.resp.forms;
           //If this is the result of clicking a form - don't replace forms
-          if(!(("match" == pageopt)&&("exact" == resultopt))){
+          if (!(("match" == pageopt) && ("exact" == resultopt))) {
             forms.forEach((item) => {
               html += item;
             });
             document.getElementById("wordItems").innerHTML = html;
-          }else{
+          } else {
             var domforms = document.querySelectorAll(".wordItem");
             domforms.forEach((item, i) => {
-              if(!item.style.textShadow == '')return;
-              if(item.innerText == resp.payl[0]){
+              if (!item.style.textShadow == '') return;
+              if (item.innerText == resp.payl[0]) {
                 domforms[i].style.backgroundColor = "#2fa60d";
-              }else{
+              } else {
                 domforms[i].style.backgroundColor = "";
               }
             });
@@ -150,12 +148,12 @@ function speakIrish(elem) {
 
 }
 
-function cleanIrishWord(word){
+function cleanIrishWord(word) {
   var lcw = word.toLowerCase();
   var cleaned = '';
-  for(i=0;i<lcw.length;i++){
-    if(allowed.includes(lcw[i])){
-      cleaned+=lcw[i]
+  for (i = 0; i < lcw.length; i++) {
+    if (allowed.includes(lcw[i])) {
+      cleaned += lcw[i]
     }
   }
   return cleaned;
@@ -165,15 +163,15 @@ function searchWord() {
   var searchterm = document.getElementById("searchTerm").value;
   var opt = document.getElementById("searchOpt").value;
   var word = cleanIrishWord(searchterm);
-  var findfile = opt+"_"+word+"_sentences.json";
-  findfile = URL+"/preload/"+findfile;
-  console.log("Cleaned word, finding file; ",findfile);
+  var findfile = opt + "_" + word + "_sentences.json";
+  findfile = URL + "/preload/" + findfile;
+  console.log("Cleaned word, finding file; ", findfile);
   sendData(findfile);
   window.scrollTo(0, 0);
 }
 
 function searchForm(word) {
-  console.log("Searching form: ",word);
+  console.log("Searching form: ", word);
   var orig = document.getElementById("searchOpt").value;
   var origword = document.getElementById("searchTerm").value;
   document.getElementById("searchTerm").value = word;
@@ -183,52 +181,41 @@ function searchForm(word) {
   document.getElementById("searchTerm").value = origword;
 }
 
-function insertSpecialChar(char){
+function insertSpecialChar(char) {
   var st = document.getElementById("searchTerm");
-  st.value+=char;
+  st.value += char;
   st.focus();
 }
 
-function scaleContent(){
+function scaleContent() {
   var newWidth = document.body.offsetWidth;
-  if(pageWidth == newWidth){
+  if (pageWidth == newWidth) {
     return;
-  }else{
+  } else {
     pageWidth = newWidth;
-    document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 15 + "px";
+    document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
     window.scrollTo(0, 0);
   }
 }
 
-function changeVibe() {
-  window.vibeCount = 0;
+function changeTheme(sheet) {
   var sheets = document.getElementsByTagName("link");
-  for(i=0;i<sheets.length;i++){
-    var thissheet = sheets[i];
-    if(thissheet.href.includes("gaeilge.css")){
-      console.log("Changing vibes to: v2");
-      thissheet.href = "css/gaeilge_v2.css";
-    }else if(thissheet.href.includes("gaeilge_v2.css")){
-      console.log("Changing vibes to: orig");
-      thissheet.href = "css/gaeilge.css";
+  for (i = 0; i < sheets.length; i++) {
+    var ref = sheets[i].href;
+    if (ref.includes("gaeilge") && ref.includes(".css")) {
+      sheets[i].href = sheet;
     }
   }
-  var vibeElem = document.getElementById("vibeElem");
-  var wid = document.body.offsetWidth;
-  vibeElem.style.marginLeft = (Math.floor(wid/2)-50)+"px";
-  vibeElem.style.display = "block";
-  vibeElem.addEventListener('animationend', (event) => {
-      vibeElem.classList.remove("zoomInUp");
-      vibeElem.classList.add("bounceOut");
-  });
-  vibeElem.classList.add("zoomInUp");
+  setTimeout(function () {
+    window.scrollTo(0, 0);
+    document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
+  }, 100);
 }
 
 //#d3c0949e
 //Document ready
 (function() {
   document.querySelector(".loader-box").style.display = "flex";
-  scaleContent();
   // Get the input field
   var input = document.getElementById("searchTerm");
   // Execute a function when the user presses a key on the keyboard
@@ -243,7 +230,7 @@ function changeVibe() {
     }
   });
 
-  fetch(URL+'/preload/match_NORESULT_sentences.json').then(response => console.log(response.status) || response) // output the status and return response
+  fetch(URL + '/preload/match_NORESULT_sentences.json').then(response => console.log(response.status) || response) // output the status and return response
     .then(response => response.text()) // send response body to next then chain
     .then(body => {
       let resp = JSON.parse(body);
@@ -254,10 +241,11 @@ function changeVibe() {
         return;
       };
       nullresult = resp;
-  });
+    });
   pageWidth = document.getElementsByTagName("body")[0].offsetWidth;
+  window.scrollTo(0, 0);
+  document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
   setTimeout(() => {
-    window.scrollTo(0, 0);
     document.querySelector(".loader-box").style.display = "none";
   }, 200);
   window.onresize = scaleContent;

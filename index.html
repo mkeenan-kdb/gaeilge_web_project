@@ -15,7 +15,7 @@
     gtag('config', 'G-3WB8J3D3CG');
   </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Gaeilge</title>
   <link rel="stylesheet" href="css/gaeilge.css">
@@ -34,7 +34,12 @@
     <h2>Teach na nGael</h2>
     <div class="datom-header">
       <div id="searchBoxContainer">
-        <input id="searchTerm" class="custom-input" type="search" placeholder="Enter word here" onfocus="this.focus();"></input>
+        <div class="search-wrapper">
+          <input id="searchTerm" type="search" placeholder="Enter word here" onfocus="this.focus();"></input>
+          <button class="search-btn" id="searchButton" onclick="searchWord();">
+            <span id="search-icon" class="searchIcon"></span>
+          </button>
+        </div>
         <div id="specialCharsContainer">
           <span onclick="insertSpecialChar('á')">á</span>
           <span onclick="insertSpecialChar('é')">é</span>
@@ -49,15 +54,14 @@
         <option value="exact">Exact Irish</option>
         <option value="english">Exact English</option>
       </select>
-      <button id="searchButton" type="button" class="custom-input" onclick="searchWord();">Search</button>
-      <label for="voiceSelect">Voice:</label>
+      <!--label for="voiceSelect">Voice:</label-->
       <select class="speech_voice custom-input" name="voices" id="voiceSelect">
         <option value="ga_UL_anb_exthts">Ulster1</option>
         <option value="ga_CO_pmc_exthts" selected>Connacht1</option>
         <option value="ga_CO_snc_exthts">Connact3</option>
         <option value="ga_MU_nnc_exthts">Munster1</option>
       </select>
-      <label for="fontStyle">Font:</label>
+      <!--label for="fontStyle">Font:</label-->
       <select class="font_style custom-input" name="fonts" id="fontStyle" onchange="changeIrishFont(this.value);">
         <option value="urrw" selected>'Urr'</option>
         <option value="ardw">'Ard'</option>
@@ -81,7 +85,6 @@
       </div>
     </div>
   </div>
-  <span id="vibeElem"></span>
   <div id="wordItems" class="irish-font">
     <div class="wordItem" style="background-color: rgb(122, 122, 122); color: rgb(208, 208, 208); text-shadow: rgb(46, 46, 46) 1px 1px 1px;">Níl focail ar bith ann<small style="font-size:0.7rem">(search a word...)</small></div>
   </div>
@@ -96,8 +99,13 @@
   </div>
   <p style="text-align:center;margin:10px;font-size: 0.6rem;">Mícheál Ó Cianáin - Michael Keenan</p>
   <p style="text-align:center;font-size: 0.6rem;">This is my DEMO site. I'm a programmer. Enjoy!</p>
-  <input id="vibeCheckbox" onchange="changeVibe();" style="margin-left:5px;padding:2px" type="checkbox"/>
-  <script type="text/javascript" src="js/gaeilge.js"></script>
+  <div class="dropdown">
+    <div class="dropdown-content">
+      <a onclick="changeTheme('css/gaeilge.css');" href="#">Light</a>
+      <a onclick="changeTheme('css/gaeilge_v2.css');" href="#">Dark</a>
+      <a onclick="changeTheme('css/gaeilge_v3.css');" href="#">Disco</a>
+    </div>
+    <script type="text/javascript" src="js/gaeilge.js"></script>
 </body>
 
 </html>
