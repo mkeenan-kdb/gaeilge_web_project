@@ -1,4 +1,5 @@
 const URL = "https://mkeenan-kdb.github.io/gaeilge_web_project";
+//const URL = "http://" + window.location.host;
 var sentences = [];
 var allowed = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","á","é","í","ó","ú"];
 var nullresult;
@@ -17,14 +18,15 @@ sentences = [{
 function sendData(findfile) {
   document.querySelector(".loader-box").style.display = "flex";
   console.log("Finding file: ", findfile);
-  fetch(URL+'/preload/'+findfile).then(response => console.log(response.status) || response) // output the status and return response
+  fetch(findfile).then(response => console.log(response.status) || response) // output the status and return response
     .then(response => response.text()) // send response body to next then chain
     .then(body => {
+      //Define the response object
       var resp;
-      if(body.includes("File not found")){
-        resp = nullresult;
+      if("{"==body[0]){
+        resp = JSON.parse(body); //If its a valid json response like we expect
       }else{
-        resp = JSON.parse(body);
+        resp = nullresult; //Use the null response if it's not json
       }
       const handler = resp.called;
       document.querySelector(".loader-box").style.display = "none";
@@ -44,6 +46,7 @@ function sendData(findfile) {
           var resultopt = resp.payl[1];
           var pageopt = document.querySelector("#searchOpt").value;
           var forms = resp.resp.forms;
+          //If this is the result of clicking a form - don't replace forms
           if(!(("match" == pageopt)&&("exact" == resultopt))){
             forms.forEach((item) => {
               html += item;
@@ -60,6 +63,7 @@ function sendData(findfile) {
               }
             });
           }
+          //If seanchló is enabled
           var poncv = document.querySelector("#poncCheck");
           if (poncv.checked == true) {
             changeChlo(poncv);
@@ -102,31 +106,6 @@ function changeIrishFont(font) {
     item.style.fontFamily = font;
   });
 }
-
-function changeVibe() {
-  window.vibeCount = 0;
-  var sheets = document.getElementsByTagName("link");
-  for(i=0;i<sheets.length;i++){
-    var thissheet = sheets[i];
-    if(thissheet.href.includes("gaeilge.css")){
-      console.log("Changing vibes to: v2");
-      thissheet.href = "css/gaeilge_v2.css";
-    }else if(thissheet.href.includes("gaeilge_v2.css")){
-      console.log("Changing vibes to: orig");
-      thissheet.href = "css/gaeilge.css";
-    }
-  }
-  var vibeElem = document.getElementById("vibeElem");
-  var wid = document.body.offsetWidth;
-  vibeElem.style.marginLeft = (Math.floor(wid/2)-50)+"px";
-  vibeElem.style.display = "block";
-  vibeElem.addEventListener('animationend', (event) => {
-      vibeElem.classList.remove("zoomInUp");
-      vibeElem.classList.add("bounceOut");
-  });
-  vibeElem.classList.add("zoomInUp");
-}
-
 
 function speakIrish(elem) {
   console.log(elem);
@@ -187,6 +166,7 @@ function searchWord() {
   var opt = document.getElementById("searchOpt").value;
   var word = cleanIrishWord(searchterm);
   var findfile = opt+"_"+word+"_sentences.json";
+  findfile = URL+"/preload/"+findfile;
   console.log("Cleaned word, finding file; ",findfile);
   sendData(findfile);
   window.scrollTo(0, 0);
@@ -218,6 +198,30 @@ function scaleContent(){
     document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 15 + "px";
     window.scrollTo(0, 0);
   }
+}
+
+function changeVibe() {
+  window.vibeCount = 0;
+  var sheets = document.getElementsByTagName("link");
+  for(i=0;i<sheets.length;i++){
+    var thissheet = sheets[i];
+    if(thissheet.href.includes("gaeilge.css")){
+      console.log("Changing vibes to: v2");
+      thissheet.href = "css/gaeilge_v2.css";
+    }else if(thissheet.href.includes("gaeilge_v2.css")){
+      console.log("Changing vibes to: orig");
+      thissheet.href = "css/gaeilge.css";
+    }
+  }
+  var vibeElem = document.getElementById("vibeElem");
+  var wid = document.body.offsetWidth;
+  vibeElem.style.marginLeft = (Math.floor(wid/2)-50)+"px";
+  vibeElem.style.display = "block";
+  vibeElem.addEventListener('animationend', (event) => {
+      vibeElem.classList.remove("zoomInUp");
+      vibeElem.classList.add("bounceOut");
+  });
+  vibeElem.classList.add("zoomInUp");
 }
 
 //#d3c0949e
