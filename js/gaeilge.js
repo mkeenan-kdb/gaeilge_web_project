@@ -14,6 +14,7 @@ sentences = [{
   "ponchtml": "<div class=\"sentence tooltip\" id=0>Irish results can have ponc like: '<span class=\"underline_word\">Ḟ</span>ear'. <span class=\"soundicon\"></span><span class=\"tooltiptext\">English translation will show here!</span></div>"
 }]
 
+
 function sendData(findfile) {
   document.querySelector(".loader-box").style.display = "flex";
   console.log("Finding file: ", findfile);
