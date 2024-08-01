@@ -219,7 +219,7 @@ input[type="search"]::-webkit-search-results-decoration {
   margin-left: 2%;
   padding: 10px;
   top: -7px;
-  background: linear-gradient(224deg, #e4633ab3, #e6226ec9, #11a8debd, #10eab7);
+  background: linear-gradient(-21deg, #00000059, #8b1c4663, #42424233, #085e4a94);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
   z-index: 2;
@@ -457,6 +457,7 @@ input[type="search"]::-webkit-search-results-decoration {
   border-top-left-radius: 9px;
   padding: 13px;
   border-top-right-radius: 9px;
+  background: linear-gradient(-21deg, #00000059, #8b1c4663, #42424233, #085e4a94);
   box-shadow: 0px 0px 2px 1px #0000001a;
   margin:0 auto;
 }
