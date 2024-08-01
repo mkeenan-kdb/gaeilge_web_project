@@ -169,7 +169,7 @@ function searchWord() {
   findfile = URL + "/preload/" + findfile;
   console.log("Cleaned word, finding file; ", findfile);
   sendData(findfile);
-  window.scrollTo(0, 0);
+  toTop();
 }
 
 function searchForm(word) {
@@ -191,15 +191,14 @@ function insertSpecialChar(char) {
 
 function scaleContent() {
   var newWidth = document.body.offsetWidth;
-  if (2<Math.abs(pageWidth-newWidth)){
+  if(screen.width == newWidth){
     return;
   } else {
+    alert("RESIZE!");
     pageWidth = newWidth;
     document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
-    setTimeout(function () {
-      toTop();
-    }, 10);
-  }
+    toTop();
+    }
 }
 
 function changeTheme(sheet) {
@@ -216,7 +215,11 @@ function changeTheme(sheet) {
 }
 
 function toTop(){
-  window.scrollTo(0, 0);
+  document.querySelector(".loader-box").style.display = "flex";
+  setTimeout(function () {
+    document.querySelector(".loader-box").style.display = "none";
+    window.scrollTo(0, 0);
+  }, 500);
 }
 
 //#d3c0949e
@@ -249,9 +252,7 @@ function toTop(){
       nullresult = resp;
       document.querySelector(".loader-box").style.display = "none";
       document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
-      setTimeout(function () {
-        toTop();
-      }, 10);
+      toTop();
     });
   pageWidth = document.getElementsByTagName("body")[0].offsetWidth;
   window.onresize = scaleContent;
