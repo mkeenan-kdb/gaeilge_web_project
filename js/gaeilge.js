@@ -191,12 +191,14 @@ function insertSpecialChar(char) {
 
 function scaleContent() {
   var newWidth = document.body.offsetWidth;
-  if (pageWidth == newWidth) {
+  if (2<Math.abs(pageWidth-newWidth)){
     return;
   } else {
     pageWidth = newWidth;
     document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
-    window.scrollTo(0, 0);
+    setTimeout(function () {
+      toTop();
+    }, 10);
   }
 }
 
@@ -209,9 +211,12 @@ function changeTheme(sheet) {
     }
   }
   setTimeout(function () {
-    window.scrollTo(0, 0);
     document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
-  }, 100);
+  }, 50);
+}
+
+function toTop(){
+  window.scrollTo(0, 0);
 }
 
 //#d3c0949e
@@ -237,18 +242,17 @@ function changeTheme(sheet) {
     .then(body => {
       let resp = JSON.parse(body);
       const handler = resp.called;
-      document.querySelector(".loader-box").style.display = "none";
       if (resp.resp == false) {
         console.log("Error on server side!");
         return;
       };
       nullresult = resp;
+      document.querySelector(".loader-box").style.display = "none";
+      document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
+      setTimeout(function () {
+        toTop();
+      }, 10);
     });
   pageWidth = document.getElementsByTagName("body")[0].offsetWidth;
-  window.scrollTo(0, 0);
-  document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
-  setTimeout(() => {
-    document.querySelector(".loader-box").style.display = "none";
-  }, 200);
   window.onresize = scaleContent;
 })();

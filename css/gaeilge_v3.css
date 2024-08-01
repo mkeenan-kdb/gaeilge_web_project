@@ -276,8 +276,9 @@ input[type="search"]::-webkit-search-results-decoration {
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  position: relative;
+  position: absolute;
   display: inline-block;
+  margin-top: -29px;
   margin-left: -4px;
 }
 
@@ -396,17 +397,16 @@ input[type="search"]::-webkit-search-results-decoration {
   cursor: pointer;
 }
 
-
 .sentence {
-  color: #ffffff;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin: 10px 0px 0px 0px;
-  padding: 9px 12px 7px 9px;
-  background-color: #21ccb317;
-  width: fit-content;
-  float: unset;
-  box-shadow: 0px 0px 3px -1px #00000066;
+    color: #ffffff;
+    font-size: 0.8rem;
+    margin: 10px 0px 0px 2px;
+    padding: 9px 12px 7px 9px;
+    background-color: #077c6b30;
+    width: fit-content;
+    float: unset;
+    box-shadow: 0px 0px 1px 0px #00000045;
+    border-radius: 3px;
 }
 
 .soundicon {
@@ -430,7 +430,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 #sentenceContainer {
-  background-color: #ffffff36;
+  background-color: #4f49574d;
   width: 98%;
   margin-left: 1%;
   margin-bottom: 7px;
@@ -439,14 +439,13 @@ input[type="search"]::-webkit-search-results-decoration {
   border-bottom-right-radius: 8px;
   0px 0px 1px 0px
   color: black;
-  box-shadow: inset 0px 0px 7px -4px black;
+  box-shadow: 0px 0px 2px 1px #0000001a;
 }
 
 .underline_word {
-  color: #0f6b66;
-  font-size: larger;
+  color: #bdd4ffcc;
+  font-size: 1rem;
   text-decoration: underline;
-  font-weight: 1000;
 }
 
 #wordItems {
@@ -457,12 +456,13 @@ input[type="search"]::-webkit-search-results-decoration {
   border-top-left-radius: 9px;
   padding: 13px;
   border-top-right-radius: 9px;
-  box-shadow: inset 0px 0px 7px -4px black;
-  margin-left: 1%;
+  box-shadow: 0px 0px 2px 1px #0000001a;
+  margin:0 auto;
 }
 
 .wordItem {
   vertical-align: middle;
+  font-size: 1.1rem;
   padding: 6px 11px 2px 10px;
   border-radius: 5px;
   color: white;
