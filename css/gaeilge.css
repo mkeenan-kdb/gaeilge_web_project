@@ -49,6 +49,7 @@ body {
   width: 100vw;
   position:absolute;
   background-color: #f5f5dc;
+  overflow-x: hidden;
 }
 
 *,

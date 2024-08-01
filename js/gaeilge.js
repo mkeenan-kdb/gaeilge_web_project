@@ -191,10 +191,9 @@ function insertSpecialChar(char) {
 
 function scaleContent() {
   var newWidth = document.body.offsetWidth;
-  if(screen.width == newWidth){
+  if(10<Math.abs(screen.width-newWidth)){
     return;
   } else {
-    alert("RESIZE!");
     pageWidth = newWidth;
     document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
     toTop();
