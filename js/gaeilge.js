@@ -195,6 +195,7 @@ function scaleContent() {
   if(screenWidth == newWidth){
     return;
   } else {
+    alert("Scale Content TRIGGERED; "+screenWidth+", "+newWidth);
     pageWidth = newWidth;
     document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
     toTop();
