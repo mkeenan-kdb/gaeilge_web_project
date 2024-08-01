@@ -194,12 +194,11 @@ function scaleContent() {
   var screenWidth = screen.width;
   if(screenWidth == newWidth){
     return;
-  } else {
-    alert("Scale Content TRIGGERED; "+screenWidth+", "+newWidth);
+  }else{
     pageWidth = newWidth;
     document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
     toTop();
-    }
+  };
 }
 
 function changeTheme(sheet) {
@@ -210,23 +209,22 @@ function changeTheme(sheet) {
       sheets[i].href = sheet;
     }
   }
-  setTimeout(function () {
+  setTimeout(function() {
     document.querySelector("#wordItems").style.marginTop = document.querySelector(".web-title").offsetHeight + 10 + "px";
   }, 50);
 }
 
-function toTop(){
+function toTop() {
   document.querySelector(".loader-box").style.display = "flex";
-  setTimeout(function () {
+  setTimeout(function() {
     document.querySelector(".loader-box").style.display = "none";
     window.scrollTo(0, 0);
-  }, 500);
+  }, 50);
 }
 
 //#d3c0949e
 //Document ready
 (function() {
-  alert("Reload");
   document.querySelector(".loader-box").style.display = "flex";
   // Get the input field
   var input = document.getElementById("searchTerm");
