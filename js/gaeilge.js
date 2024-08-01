@@ -191,7 +191,8 @@ function insertSpecialChar(char) {
 
 function scaleContent() {
   var newWidth = document.body.offsetWidth;
-  if(10<Math.abs(screen.width-newWidth)){
+  var screenWidth = screen.width;
+  if(screenWidth == newWidth){
     return;
   } else {
     pageWidth = newWidth;
@@ -224,6 +225,7 @@ function toTop(){
 //#d3c0949e
 //Document ready
 (function() {
+  alert("Reload");
   document.querySelector(".loader-box").style.display = "flex";
   // Get the input field
   var input = document.getElementById("searchTerm");
