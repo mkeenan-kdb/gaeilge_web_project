@@ -4,7 +4,6 @@ module.exports = {
     '**.html',
     'img/**.*',
     'js/**.js',
-    'fonts/**/**.woff2',
-    'preload/**/**.json'
+    'fonts/**/**.woff2'
   ]
 };
