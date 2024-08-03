@@ -228,7 +228,7 @@ function toTop() {
 
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+      navigator.serviceWorker.register('/gaeilge_web_project/service-worker.js').then((registration) => {
         console.log('ServiceWorker registration successful with scope: ', registration.scope);
       }, (error) => {
         console.log('ServiceWorker registration failed: ', error);
