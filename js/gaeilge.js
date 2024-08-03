@@ -225,6 +225,17 @@ function toTop() {
 //#d3c0949e
 //Document ready
 (function() {
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js').then((registration) => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+      }, (error) => {
+        console.log('ServiceWorker registration failed: ', error);
+      });
+    });
+  }
+
   document.querySelector(".loader-box").style.display = "flex";
   // Get the input field
   var input = document.getElementById("searchTerm");
