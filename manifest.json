@@ -5,7 +5,7 @@
   "background_color": "#fa99ca",
   "display": "standalone",
   "scope": "/",
-  "start_url": "http://michaels-macbook-air.local:50228/index.html",
+  "start_url": "https://mkeenan-kdb.github.io/gaeilge_web_project/",
   "description": "Large collection of Irish sentences with English translations.",
   "icons": [{
     "src": "img/mickicon.png",
