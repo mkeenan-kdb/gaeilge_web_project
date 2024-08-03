@@ -4,8 +4,7 @@
   "theme_color": "#ffcbe4",
   "background_color": "#fa99ca",
   "display": "standalone",
-  "scope": "/gaeilge_web_project/",
-  "start_url": "https://mkeenan-kdb.github.io",
+  "start_url": "https://mkeenan-kdb.github.io/gaeilge_web_project/",
   "description": "Large collection of Irish sentences with English translations.",
   "icons": [{
     "src": "img/mickicon.png",
