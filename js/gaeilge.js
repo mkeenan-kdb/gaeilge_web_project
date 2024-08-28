@@ -99,10 +99,14 @@ function changeIrishFont(font) {
   console.log("Changing font to:", font);
   var words = document.querySelectorAll(".wordItem");
   var sentences = document.querySelectorAll(".sentence");
+  var tableRows = document.querySelectorAll(".verb-table-container");
   words.forEach((item, i) => {
     item.style.fontFamily = font;
   });
   sentences.forEach((item, i) => {
+    item.style.fontFamily = font;
+  });
+  tableRows.forEach((item, i) => {
     item.style.fontFamily = font;
   });
 }

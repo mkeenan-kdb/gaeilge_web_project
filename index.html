@@ -14,6 +14,7 @@
 
     gtag('config', 'G-3WB8J3D3CG');
   </script>
+
   <meta charset="UTF-8">
   <meta name='apple-mobile-web-app-capable' content='yes' />
   <meta name='mobile-web-app-capable' content='yes' />
@@ -23,6 +24,7 @@
   <title>Gaeilge</title>
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="css/gaeilge.css">
+  <link rel="stylesheet" href="css/verbs.css">
   <link rel="icon" href="./gaeilgeico.ico" type="image/x-icon">
 </head>
 
@@ -30,11 +32,15 @@
   <div class="loader-box" style="display:none;">
     <div class="loader"></div>
   </div>
+  <dialog id="verbDialog">
+    <div id="tenseDetailsContainer">
+    </div>
+    <button onclick="hideVerbDialog()">Close Me! </button>
+  </dialog>
   <div class="web-title">
     <div class="mick-icon" onClick="window.open('https://github.com/mkeenan-kdb/gaeilge_web_project/blob/main/README.md','_newtab');">
       <span></span>
     </div>
-    <!--h2>Lámha na nGael</h2-->
     <h2>Teach na nGael</h2>
     <div class="datom-header">
       <div id="searchBoxContainer">
@@ -111,6 +117,7 @@
     </div>
   </div>
   <script type="text/javascript" src="js/gaeilge.js"></script>
+  <script type="text/javascript" src="js/verbs.js"></script>
 </body>
 
 </html>

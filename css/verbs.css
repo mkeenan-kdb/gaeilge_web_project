@@ -1,0 +1,81 @@
+.verb_word{
+  border: 2px dashed grey;
+  padding: 3px;
+  border-radius: 4px;
+}
+
+.verb_word:hover{
+  cursor:pointer;
+  border:2px dashed blue;
+}
+
+#verbDialog {
+    scrollbar-width: none;
+    margin: 0 auto;
+    width: fit-content;
+    background-color: #00000085;
+    box-shadow: inset 0px -3px 6px 0px #0000004f;
+    border: none;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#verbDialog::backdrop {background-color: #000000e6;}
+/* Verb Table Styles*/
+summary{
+  text-transform: capitalize;
+  text-decoration: underline;
+  font-size: 1rem;
+  padding-left: 9px;
+}
+#tenseDetailsContainer{
+  display: block;
+  width: auto;
+  color: white;
+}
+.verb-tables-container{
+
+}
+.verb-table-container{
+ display: inline-block;
+ box-shadow: 0px 0px 4px 0px #00000066;
+ margin: 10px 10px 0px 0px;
+ border-radius: 8px;
+ padding: 6px;
+ background-color: #1d6aff4f;
+ font-size: 0.8rem;
+}
+.academia table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: auto;
+	border-top: 2.27px solid black;
+	border-bottom: 2.27px solid black;
+	overflow-x: auto;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.academia th,
+.academia td {
+	border: 0 none;
+	padding: 0.41rem;
+	line-height: 1;
+}
+.academia table > tbody > tr:first-child > td,
+.academia table > tbody > tr:first-child > th {
+	border-top: 1.36px solid black;
+}
+.academia table > tbody > tr:last-child > td,
+.academia table > tbody > tr:last-child > th {
+	border-bottom: 1.36px solid black;
+}
+.academia th {
+    text-align:left;
+    background-color: #0a8d24;
+    font-weight: 700;
+    padding: 8px 9px 5px 9px;
+}
+.academia tr:nth-child(even) {
+      background-color: #5a74f9;
+}
+.academia tbody tr:hover td {
+	background-color: #4d7fef;
+}
