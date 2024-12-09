@@ -111,6 +111,14 @@ function changeIrishFont(font) {
   });
 }
 
+//connacht woman AI ga_CO_snc_piper
+//connacht woman basic ga_CO_snc_exthts
+//connacht man basic ga_CO_pmc_exthts
+//ulster woman basic ga_UL_anb_exthts
+//ulster woman AI ga_UL_anb_piper
+//muster woman AI ga_MU_nnc_piper
+//muster man basic ga_MU_dms_nemo
+//munster man AI ga_MU_dms_piper
 function speakIrish(elem) {
   console.log(elem);
   var txt = sentences[Number(elem.parentElement.id)].orig;
@@ -118,28 +126,32 @@ function speakIrish(elem) {
   var voice = document.getElementById("voiceSelect").value;
   document.querySelector(".loader-box").style.display = "flex";
   console.log("Speaking: ", txt);
-  fetch("https://synthesis.abair.ie/api/synthesise", {
+  fetch("https://api.abair.ie/v3/synthesis", {
     method: "POST",
     body: JSON.stringify({
       "synthinput": {
         "text": txt,
-        "normalise": true
+        "ssml": "string"
       },
       "voiceparams": {
         "languageCode": "ga-IE",
-        "name": voice
+        "name": voice,
+        "ssmlGender": "UNSPECIFIED"
       },
       "audioconfig": {
         "audioEncoding": "LINEAR16",
-        "speakingRate": "1",
-        "pitch": "1",
-        "htsParams": "string"
+        "speakingRate": 1,
+        "pitch": 1,
+        "volumeGainDb": 1,
+        "htsParams": "string",
+        "sampleRateHertz": 0,
+        "effectsProfileId": []
       },
-      "outputType": "JSON",
-      "timing": "BOTH"
+      "outputType": "JSON"
     }),
     headers: {
-      "Content-type": "application/json; charset=UTF-8"
+      "Content-type": "application/json; charset=UTF-8",
+      "accept": "application/json"
     }
   }).then((response) => {
     return response.json();
