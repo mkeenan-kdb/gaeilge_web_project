@@ -341,26 +341,33 @@ input[type="search"]::-webkit-search-results-decoration {
   margin: 0 auto;
 }
 
+.icon-link {
+  display: inline-block;         /* Use flexbox to align items inline */
+     /* Vertically center the items */
+  float: inline-start;
+  font-size: 0.8rem;
+  color:white;
+}
+
 .mick-icon {
   background: linear-gradient(45deg, #b74c2a, #aa3060e8, #1797c6e3, #16dbace8);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
-  box-shadow: -3px 6px 5px 2px #0000001a;
-  display: inline-block;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  box-shadow: -3px 6px 5px 2px #0000001a;  display: block;
   float: left;
-  position: relative;
+  border-radius: 50%;
+  border: 2px solid #eb870e;
+      /* Add space between the icon and the text */
 }
 
 .mick-icon span {
-  background: url('../img/mickicon.png');
+  background: url(../img/mickicon.png);
   width: 40px;
   height: 40px;
   background-size: contain;
-  display: inline-block;
-  margin-top: 5px;
+  display: block;
+  margin-left: 3px;
+  margin-top: 2px;
 }
 
 .mick-icon:hover {
